@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "38a6afa7-057f-4d13-aa89-13e93aec122a",
+		"name": "todolist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17858101"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"duoc@admin.com\",\r\n    \"password\": \"admin\",\r\n    \"name\": \"Master Duoc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"duoc@admin.com\",\r\n    \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImR1b2NAYWRtaW4uY29tIiwic3ViIjoiNjYxMDQ0ZTQ4MDg1ZWE2M2ZiMTE1MTk1IiwiaWF0IjoxNzEyMzQ1MTMzLCJleHAiOjE3MTIzNDg3MzN9.WD6Jao6C3Ef83aWVMbdMrkdOVpchpZoZJE00euak5Ek",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"note 1\",\r\n    \"content\": \"content 1\",\r\n    \"tags\": [],\r\n    \"background_color\": \"blue\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/todo/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"todo",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update todo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"6610532a80742bb6a13e015a\",\r\n    \"title\": \"note 56\",\r\n    \"content\": \"content 67\",\r\n    \"tags\": [\"hello\"],\r\n    \"background_color\": \"blue\",\r\n    \"userId\": \"661044e48085ea63fb115195\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/todo/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"todo",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete todo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"6610532a80742bb6a13e015a\",\r\n    \"userId\": \"661044e48085ea63fb115195\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/todo/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"todo",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "todo list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImR1b2NAYWRtaW4uY29tIiwic3ViIjoiNjYxMDQ0ZTQ4MDg1ZWE2M2ZiMTE1MTk1IiwiaWF0IjoxNzEyMzQ1MTMzLCJleHAiOjE3MTIzNDg3MzN9.WD6Jao6C3Ef83aWVMbdMrkdOVpchpZoZJE00euak5Ek",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/todo/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"todo",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
