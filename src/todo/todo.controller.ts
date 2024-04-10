@@ -4,6 +4,7 @@ import { CreateTodoDTO } from './dto/createTodoDTO';
 import { MiniTodoDTO } from './dto/miniTodoDTO';
 import { UpdateTodoDTO } from './dto/updateTodoDTO';
 import { DeleteTodoDTO } from './dto/deleteTodoDTO';
+import { IdTodoDTO } from './dto/idTodoDTO';
 
 @Controller('todo')
 export class TodoController {
@@ -24,8 +25,10 @@ export class TodoController {
   }
 
   @Post('/delete')
-  async delete(@Body() deleteTodo: DeleteTodoDTO) {
-    const result = await this.todoService.delete(deleteTodo);
+  async delete(@Body() idTodoObj: IdTodoDTO, @Req() req) {
+    const userId = req.user.sub;
+    const deleteTodoObj: DeleteTodoDTO = { ...idTodoObj, userId };
+    const result = await this.todoService.delete(deleteTodoObj);
     return result;
   }
 
